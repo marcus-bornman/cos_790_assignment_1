@@ -1,7 +1,6 @@
 package domain;
 
-import domain.*;
-import evohyp.Problem;
+import evohyp.ExamTimetablingProblem;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -22,7 +21,7 @@ public class ProblemReader {
 	 * @return an instance of the Problem class representing the problem described in filePath.
 	 * @throws IOException if no file could be found at the provided path.
 	 */
-	public static Problem problemFromFile(String filePath) throws IOException {
+	public static ExamTimetablingProblem problemFromFile(String filePath) throws IOException {
 		String content = Files.readString(Path.of(filePath), StandardCharsets.US_ASCII);
 		List<String> sections = Arrays.asList(content.split("\\[.*]\r\n"));
 
@@ -33,7 +32,7 @@ public class ProblemReader {
 		List<RoomHardConstraint> roomHardConstraints = readRoomHardConstraints(sections.get(5));
 		List<InstitutionalWeighting> institutionalWeightings = readInstitutionalWeightings(sections.get(6));
 
-		return new Problem(exams, periods, rooms, periodHardConstraints, roomHardConstraints, institutionalWeightings);
+		return new ExamTimetablingProblem(exams, periods, rooms, periodHardConstraints, roomHardConstraints, institutionalWeightings);
 	}
 
 	private static List<Exam> readExams(String examSection) {

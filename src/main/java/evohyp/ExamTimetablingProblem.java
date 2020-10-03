@@ -5,7 +5,7 @@ import domain.*;
 
 import java.util.List;
 
-public class Problem extends ProblemDomain {
+public class ExamTimetablingProblem extends ProblemDomain {
 	public final List<Exam> exams;
 	public final List<Period> periods;
 	public final List<Room> rooms;
@@ -24,7 +24,7 @@ public class Problem extends ProblemDomain {
 	 * @param roomHardConstraints     - The set of hard constraints for rooms.
 	 * @param institutionalWeightings - The set of institutional weightings which serve as soft constraints.
 	 */
-	public Problem(List<Exam> exams, List<Period> periods, List<Room> rooms, List<PeriodHardConstraint> periodHardConstraints, List<RoomHardConstraint> roomHardConstraints, List<InstitutionalWeighting> institutionalWeightings) {
+	public ExamTimetablingProblem(List<Exam> exams, List<Period> periods, List<Room> rooms, List<PeriodHardConstraint> periodHardConstraints, List<RoomHardConstraint> roomHardConstraints, List<InstitutionalWeighting> institutionalWeightings) {
 		this.exams = exams;
 		this.periods = periods;
 		this.rooms = rooms;
@@ -56,13 +56,13 @@ public class Problem extends ProblemDomain {
 	 * @return an object of type InitialSoln.
 	 */
 	@Override
-	public Solution evaluate(String heuristicComb) {
-		Solution solution = new Solution(this, List.of());
+	public ExamTimetablingSolution evaluate(String heuristicComb) {
+		ExamTimetablingSolution solution = new ExamTimetablingSolution(this, List.of());
 
 		for (char character : heuristicComb.toCharArray()) {
-			HeuristicApplier lowLevelHeuristicApplier = new HeuristicApplier(this, character);
+			ConstructiveHeuristicEngine constructiveHeuristicEngine = new ConstructiveHeuristicEngine(this, character);
 			for (int i = 0; i < 5; i++) {
-				solution = lowLevelHeuristicApplier.applyToSolution(solution);
+				solution = constructiveHeuristicEngine.applyToSolution(solution);
 			}
 		}
 

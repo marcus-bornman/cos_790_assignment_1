@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Solution extends InitialSoln {
+public class ExamTimetablingSolution extends InitialSoln {
 	private String heuristicComb;
 
-	private final Problem problem;
+	private final ExamTimetablingProblem problem;
 
 	public final List<Booking> bookings;
 
@@ -20,7 +20,7 @@ public class Solution extends InitialSoln {
 	/**
 	 * @param problem - the problem that this solution will solve.
 	 */
-	public Solution(Problem problem, List<Booking> bookings) {
+	public ExamTimetablingSolution(ExamTimetablingProblem problem, List<Booking> bookings) {
 		this.problem = problem;
 		this.bookings = bookings;
 		this.fitness = calcFitness();

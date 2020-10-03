@@ -1,6 +1,6 @@
 import genalg.GenAlg;
 import initialsoln.InitialSoln;
-import evohyp.HeuristicApplier;
+import evohyp.ConstructiveHeuristicEngine;
 import domain.ProblemReader;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			long seed = System.currentTimeMillis();
-			String heuristics = HeuristicApplier.SUPPORTED_HEURISTICS;
+			String heuristics = ConstructiveHeuristicEngine.SUPPORTED_HEURISTICS;
 
 			GenAlg genAlg = new GenAlg(seed, heuristics);
 			genAlg.setPopulationSize(50);

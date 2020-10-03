@@ -14,13 +14,13 @@ import java.util.stream.IntStream;
 /**
  * A class for applying Low-level heuristics of the Timetabling Problem.
  */
-public class HeuristicApplier {
+public class ConstructiveHeuristicEngine {
 	public static String SUPPORTED_HEURISTICS = "ABCDEFGHI";
 
-	private final Problem problem;
+	private final ExamTimetablingProblem problem;
 	private final Character character;
 
-	public HeuristicApplier(Problem problem, Character heuristicChar) {
+	public ConstructiveHeuristicEngine(ExamTimetablingProblem problem, Character heuristicChar) {
 		this.problem = problem;
 		this.character = heuristicChar;
 	}
@@ -31,7 +31,7 @@ public class HeuristicApplier {
 	 * @param solution - the solution to which to apply the heuristic.
 	 * @return a new solution with the heuristic applied.
 	 */
-	public final Solution applyToSolution(Solution solution) {
+	public final ExamTimetablingSolution applyToSolution(ExamTimetablingSolution solution) {
 		Exam exam;
 		Period period;
 		Room room;
@@ -80,14 +80,14 @@ public class HeuristicApplier {
 		List<Booking> bookings = new ArrayList<>(solution.bookings);
 		Booking booking = new Booking(exam, period, room);
 		bookings.add(booking);
-		return new Solution(problem, bookings);
+		return new ExamTimetablingSolution(problem, bookings);
 	}
 
 	/**
 	 * @param solution - the current solution for which to select the next exam.
 	 * @return The examination with the most clashes (ie. shares students with the most other exams).
 	 */
-	public Exam findExamWithMostClashes(Solution solution) {
+	public Exam findExamWithMostClashes(ExamTimetablingSolution solution) {
 		List<Exam> unbookedExams = problem.exams.stream()
 				.filter(e -> solution.bookings.stream().noneMatch(b -> b.exam.number == e.number))
 				.collect(Collectors.toList());
@@ -109,7 +109,7 @@ public class HeuristicApplier {
 	 * @param solution - the current solution for which to select the next exam.
 	 * @return The examination with the most students enrolled.
 	 */
-	public Exam findExamWithMostStudents(Solution solution) {
+	public Exam findExamWithMostStudents(ExamTimetablingSolution solution) {
 		return problem.exams.stream()
 				.filter(e -> solution.bookings.stream().noneMatch(b -> b.exam.number == e.number))
 				.sorted((e1, e2) -> e2.students.size() - e1.students.size())
@@ -120,7 +120,7 @@ public class HeuristicApplier {
 	 * @param solution - the current solution for which to select the next exam.
 	 * @return The examination with the largest number of students involved in clashes is scheduled first.
 	 */
-	public Exam findExamWithMostWeightedClashes(Solution solution) {
+	public Exam findExamWithMostWeightedClashes(ExamTimetablingSolution solution) {
 		List<Exam> unbookedExams = problem.exams.stream()
 				.filter(e -> solution.bookings.stream().noneMatch(b -> b.exam.number == e.number))
 				.collect(Collectors.toList());
@@ -142,7 +142,7 @@ public class HeuristicApplier {
 	 * @param solution - the current solution for which to select the next period.
 	 * @return The period with the least number of current bookings.
 	 */
-	public Period findPeriodWithLeastBookings(Solution solution) {
+	public Period findPeriodWithLeastBookings(ExamTimetablingSolution solution) {
 		Period selected = null;
 		int selectedCount = Integer.MAX_VALUE;
 
@@ -162,7 +162,7 @@ public class HeuristicApplier {
 	 * @param solution - the current solution for which to select the next period.
 	 * @return The period with the least number of current bookings on the same day.
 	 */
-	public Period findPeriodWithLeastOnSameDay(Solution solution) {
+	public Period findPeriodWithLeastOnSameDay(ExamTimetablingSolution solution) {
 		Period selected = null;
 		int selectedCount = Integer.MAX_VALUE;
 
@@ -182,7 +182,7 @@ public class HeuristicApplier {
 	 * @param solution - the current solution for which to select the next period.
 	 * @return The period with the least number of current booked students.
 	 */
-	public Period findPeriodWithLeastStudents(Solution solution) {
+	public Period findPeriodWithLeastStudents(ExamTimetablingSolution solution) {
 		Period selected = null;
 		int selectedCount = Integer.MAX_VALUE;
 
