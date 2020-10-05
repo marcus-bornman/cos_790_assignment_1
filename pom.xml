@@ -23,25 +23,24 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.github.marcus-bornman</groupId>
+            <artifactId>itc2007</artifactId>
+            <version>master-135dc15e56-1</version>
+        </dependency>
+        <dependency>
             <groupId>za.ac.up</groupId>
-            <artifactId>genalg</artifactId>
+            <artifactId>distrgenalg</artifactId>
             <version>1.1</version>
-            <type>jar</type>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>za.ac.up</groupId>
             <artifactId>initialsoln</artifactId>
             <version>1.1</version>
-            <type>jar</type>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>za.ac.up</groupId>
             <artifactId>problemdomain</artifactId>
             <version>1.1</version>
-            <type>jar</type>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -53,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.marcusbornman.cos_790_assignment_1.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
