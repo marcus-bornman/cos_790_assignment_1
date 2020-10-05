@@ -1,4 +1,5 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Oct 04 08:54:38 SAST 2020
-initialsoln-1.1.pom>=
+#Sun Oct 04 21:51:22 SAST 2020
+initialsoln-1.1.jar>local_mvn_repo=
+initialsoln-1.1.pom>local_mvn_repo=
 initialsoln-1.1.jar>=

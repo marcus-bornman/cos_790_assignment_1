@@ -1,4 +1,4 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Oct 04 08:54:38 SAST 2020
-genalg-1.1.jar>=
-genalg-1.1.pom>=
+#Sun Oct 04 21:51:03 SAST 2020
+distrgenalg-1.1.jar>=
+distrgenalg-1.1.pom>=
