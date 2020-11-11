@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <p align="right">
 <a href="https://www.up.ac.za">
-<img src="https://raw.githubusercontent.com/marcus-bornman/cos_790_assignment_1/master/assets/project_badge.png" height="50" alt="badge">
+<img src="https://raw.githubusercontent.com/marcus-bornman/cos_790_assignment_1/master/assets/project_badge.png" height="100" alt="badge">
 </a>
 </p>
 <p align="center">
