@@ -1,6 +1,6 @@
 package com.marcusbornman.cos_790_assignment_1;
 
-import uk.ac.qub.cs.itc2007.*;
+import dev.born.itc2007.*;
 
 import java.util.ArrayList;
 import java.util.List;

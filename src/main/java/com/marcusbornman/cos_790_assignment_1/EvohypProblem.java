@@ -1,8 +1,8 @@
 package com.marcusbornman.cos_790_assignment_1;
 
 import problemdomain.ProblemDomain;
-import uk.ac.qub.cs.itc2007.ExamTimetablingProblem;
-import uk.ac.qub.cs.itc2007.ExamTimetablingSolution;
+import dev.born.itc2007.ExamTimetablingProblem;
+import dev.born.itc2007.ExamTimetablingSolution;
 
 import java.util.List;
 

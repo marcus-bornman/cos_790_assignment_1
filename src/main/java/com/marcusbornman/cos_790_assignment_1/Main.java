@@ -5,8 +5,8 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
-import uk.ac.qub.cs.itc2007.ExamTimetablingProblem;
-import uk.ac.qub.cs.itc2007.ExamTimetablingSolution;
+import dev.born.itc2007.ExamTimetablingProblem;
+import dev.born.itc2007.ExamTimetablingSolution;
 
 import java.io.File;
 import java.io.IOException;
